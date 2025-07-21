@@ -71,6 +71,7 @@ const App = ({ addOnUISdk }: { addOnUISdk: AddOnSDKAPI }) => {
             content={featuredContent}
             onToggleFavorite={handleToggleFavorite}
             onApplyDesign={handleApplyDesign}
+            addOnUISdk={addOnUISdk}
           />
         </section>
 

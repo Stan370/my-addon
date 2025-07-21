@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useId } from "react";
 import { Heart, Palette, Type } from 'lucide-react';
 import { DesignContent } from '../types';
 import { PlatformBadge } from './PlatformBadge';
+import { useDraggableToExpress } from "../hooks/useDrag";
 
 interface FeaturedCardProps {
   content: DesignContent;
   onToggleFavorite: (id: string) => void;
   onApplyDesign: (content: DesignContent) => void;
+  addOnUISdk: any; // Added for drag-and-drop functionality
 }
 
 export const FeaturedCard: React.FC<FeaturedCardProps> = ({ 
   content, 
   onToggleFavorite, 
-  onApplyDesign 
+  onApplyDesign,
+  addOnUISdk
 }) => {
+  const imgId = useId();
+  useDraggableToExpress(addOnUISdk, imgId, content.imageUrl);
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
       <div className="relative">
         <img
+          id={imgId}
           src={content.imageUrl}
           alt={content.title}
           className="w-full h-64 object-cover"

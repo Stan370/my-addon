@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import './index.css';
 
 import addOnUISdk from "https://new.express.adobe.com/static/add-on-sdk/sdk.js";
 
